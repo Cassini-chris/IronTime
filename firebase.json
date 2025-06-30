@@ -1,0 +1,30 @@
+{
+  "hosting": {
+    "public": "src", // <--- THIS IS THE KEY CHANGE! Point to your Next.js build output
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "run":{
+         "serviceId": "irontimebackend",
+         "region": "us-central-1"
+        }
+      }
+    ]
+  },
+  "apphosting": { // Keep this only if you know it's for another backend service
+    "backendId": "irontimebackend",
+    "rootDir": "/",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "functions"
+    ]
+  }
+}
